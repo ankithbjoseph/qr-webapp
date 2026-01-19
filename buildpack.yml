@@ -1,0 +1,3 @@
+# Paketo Buildpack configuration
+nodejs:
+  version: 18.*
