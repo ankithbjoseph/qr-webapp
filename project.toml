@@ -4,21 +4,19 @@
 [_]
 schema-version = "0.2"
 
-[io.buildpacks]
-# Use the Node.js buildpack for building and serving
-builder = "paketobuildpacks/builder-jammy-base"
+[[io.buildpacks.build.env]]
+name = "BP_NODE_RUN_SCRIPTS"
+value = "build"
 
-[[io.buildpacks.group]]
-id = "paketo-buildpacks/nodejs"
+[[io.buildpacks.build.env]]
+name = "BP_WEB_SERVER"
+value = "nginx"
 
-[[io.buildpacks.group]]
-id = "paketo-buildpacks/node-run-script"
+[[io.buildpacks.build.env]]
+name = "BP_WEB_SERVER_ROOT"
+value = "dist"
 
-[io.buildpacks.build.env]
-# Ensure the build script runs during buildpack execution
-BP_NODE_RUN_SCRIPTS = "build"
+[[io.buildpacks.build.env]]
+name = "BP_WEB_SERVER_ENABLE_PUSH_STATE"
+value = "true"
 
-# Configure the web server for static files
-BP_WEB_SERVER = "nginx"
-BP_WEB_SERVER_ROOT = "dist"
-BP_WEB_SERVER_ENABLE_PUSH_STATE = "true"
