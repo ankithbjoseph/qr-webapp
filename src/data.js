@@ -11,22 +11,22 @@ export const defaultContactData = {
     city: "Dublin",
     state: "Co. Dublin",
     zip: "D04F1P2",
-    country: "Ireland"
+    country: "Ireland",
   },
   mapsUrl: "https://maps.app.goo.gl/vZMNjFFQjXychbdm6",
   social: {
     facebook: "https://www.facebook.com/IrishTaxAgents/",
     x: "https://x.com/IrishTaxAgents",
     linkedin: "https://www.linkedin.com/company/irish-tax-agents",
-    instagram: "https://www.instagram.com/irishtaxagents"
+    instagram: "https://www.instagram.com/irishtaxagents",
   },
   themeColor: "#316097",
-  accentColor: "#e91e63"
+  accentColor: "#e91e63",
 };
 
 // Storage key
-const STORAGE_KEY = 'vcard_contact_data';
-const AUTH_KEY = 'vcard_admin_auth';
+const STORAGE_KEY = "vcard_contact_data";
+const AUTH_KEY = "vcard_admin_auth";
 
 // Load contact data from localStorage or use defaults
 export function loadContactData() {
@@ -35,7 +35,7 @@ export function loadContactData() {
     try {
       return { ...defaultContactData, ...JSON.parse(stored) };
     } catch (e) {
-      console.error('Error parsing stored data:', e);
+      console.error("Error parsing stored data:", e);
     }
   }
   return { ...defaultContactData };
@@ -48,13 +48,15 @@ export function saveContactData(data) {
 
 // Admin authentication
 export function isAdminLoggedIn() {
-  return localStorage.getItem(AUTH_KEY) === 'true';
+  return localStorage.getItem(AUTH_KEY) === "true";
 }
 
 export function adminLogin(password) {
-  // Default password is "admin123" - in production, use proper authentication
-  if (password === 'admin123') {
-    localStorage.setItem(AUTH_KEY, 'true');
+  // Use environment variable for password, fallback to default if not set
+  const correctPassword = import.meta.env.VITE_ADMIN_PASSWORD || "admin123";
+
+  if (password === correctPassword) {
+    localStorage.setItem(AUTH_KEY, "true");
     return true;
   }
   return false;

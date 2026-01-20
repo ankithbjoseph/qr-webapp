@@ -2,16 +2,105 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Irish Tax Agents - Accountants & Taxation Services</title>
+    <meta name="title" content="Irish Tax Agents - Accountants & Taxation Services" />
+    <meta name="description" content="Irish Tax Agents - Professional Accountancy & Taxation Services in Dublin. Revenue TAIN: 77706B. CRO Filing Agent ID 1272. Contact us for expert tax advice." />
+    <meta name="keywords" content="Irish Tax Agents, Accountants Dublin, Tax Services Ireland, Revenue TAIN, CRO Filing, Tax Advice Ireland" />
+    <meta name="author" content="Irish Tax Agents" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.irishtaxagents.com/" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.irishtaxagents.com/" />
+    <meta property="og:title" content="Irish Tax Agents - Accountants & Taxation Services" />
+    <meta property="og:description" content="Irish Accountancy & Taxation - Revenue TAIN: 77706B. CRO Filing Agent ID 1272. Professional tax services in Dublin." />
+    <meta property="og:image" content="https://www.irishtaxagents.com/logo.png" />
+    <meta property="og:locale" content="en_IE" />
+    <meta property="og:site_name" content="Irish Tax Agents" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://www.irishtaxagents.com/" />
+    <meta name="twitter:title" content="Irish Tax Agents - Accountants & Taxation Services" />
+    <meta name="twitter:description" content="Irish Accountancy & Taxation - Revenue TAIN: 77706B. Professional tax services in Dublin." />
+    <meta name="twitter:image" content="https://www.irishtaxagents.com/logo.png" />
+    <meta name="twitter:site" content="@IrishTaxAgents" />
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#316097" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Irish Tax Agents" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logo.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Irish Tax Agents - Accountants & Taxation Services">
-    <meta property="og:title" content="Irish Tax Agents">
-    <meta property="og:description" content="Irish Accountancy & Taxation - Revenue TAIN: 77706B">
-    <title>Irish Tax Agents</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AccountingService",
+      "name": "Irish Tax Agents",
+      "description": "Irish Accountancy & Taxation Services",
+      "url": "https://www.irishtaxagents.com",
+      "telephone": "+353-1-230-3001",
+      "email": "manager@irishtaxagents.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Officepods Cranford Centre, Stillorgan Rd",
+        "addressLocality": "Dublin",
+        "addressRegion": "Co. Dublin",
+        "postalCode": "D04F1P2",
+        "addressCountry": "IE"
+      },
+      "sameAs": [
+        "https://www.facebook.com/IrishTaxAgents/",
+        "https://x.com/IrishTaxAgents",
+        "https://www.linkedin.com/company/irish-tax-agents",
+        "https://www.instagram.com/irishtaxagents"
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    <script>
+      // Register service worker for PWA
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('SW registration failed:', error);
+            });
+        });
+      }
+    </script>
+    <noscript>
+      <div style="padding: 20px; text-align: center;">
+        <h1>Irish Tax Agents</h1>
+        <p>Please enable JavaScript to view this digital business card.</p>
+        <p>Contact: <a href="tel:012303001">01 230 3001</a> | <a href="mailto:manager@irishtaxagents.com">manager@irishtaxagents.com</a></p>
+      </div>
+    </noscript>
   </body>
 </html>
