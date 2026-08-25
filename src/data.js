@@ -52,8 +52,12 @@ export function isAdminLoggedIn() {
 }
 
 export function adminLogin(password) {
-  // Use environment variable for password, fallback to default if not set
-  const correctPassword = import.meta.env.VITE_ADMIN_PASSWORD || "admin123";
+  // Runtime env (env.js, regenerated at container startup) takes priority,
+  // then build-time env, then the default.
+  const correctPassword =
+    (typeof window !== "undefined" && window.__ENV__?.VITE_ADMIN_PASSWORD) ||
+    import.meta.env.VITE_ADMIN_PASSWORD ||
+    "admin123";
 
   if (password === correctPassword) {
     localStorage.setItem(AUTH_KEY, "true");

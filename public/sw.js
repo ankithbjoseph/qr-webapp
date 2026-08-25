@@ -39,6 +39,9 @@ self.addEventListener("fetch", (event) => {
   // Skip external requests (like Font Awesome CDN)
   if (!event.request.url.startsWith(self.location.origin)) return;
 
+  // Runtime config must always come fresh from the server
+  if (new URL(event.request.url).pathname === "/env.js") return;
+
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
